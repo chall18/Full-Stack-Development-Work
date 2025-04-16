@@ -13,6 +13,15 @@
     <title>Complete Web Page</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css">
     <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+      }
+      .page-wrapper {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
         #carouselHeader {
             height: 20vh;
             overflow: hidden;
@@ -23,17 +32,19 @@
             width: 100%;
         }
         .container {
+          
             display: flex;
-            width: 100vh;
-            height: 900px;
+            flex-wrap: wrap;
+            flex-grow: 1; /* Ensures container takes up remaining space */
+            width: 100%;
+            height: 50vh;
             justify-content: space-around;
             align-items: center;
             background: black; 
         }
 
         /* Addressing mobile width */
-        @media (min-width: 320px) and (max-width: 480px) {
-          /* TODO: Top card bleeds into carousel when screen shrinks. Fix it.  */
+        @media (max-width: 480px) {
             .container {
                 flex-direction: column;
             }
@@ -41,6 +52,7 @@
     </style>
 </head>
 <body>
+  <div class="page-wrapper d-flex flex-column min-vh-100">
   <!-- Carousel at top of page -->
     <div id="carouselHeader" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
@@ -68,13 +80,12 @@
           <span class="visually-hidden">Next</span>
         </button>
       </div>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
 
       <!-- Middle of page w/ three cards containing YouTube videos -->
       <div class="container">
 
-        <div class="row">
-          <div class="col-md-4">
+        <div class="row g-4">
+          <div class=" col-12 col-md-4">
         <div class="card h-100">
             <div class="ratio ratio-16x9">
               <iframe width="1424" height="652" src="https://www.youtube.com/embed/zLSaApeG-vY?si=6qqgobU1W68ZV5am" title="YouTube video player" 
@@ -87,7 +98,7 @@
         </div>
       </div>
 
-      <div class="col-md-4">
+      <div class=" col-12 col-md-4">
         <div class="card h-100">
           <div class="ratio ratio-16x9">
             <iframe width="1424" height="652" src="https://www.youtube.com/embed/6rpm6h8Gm0w?si=MrsnrfG6dLmIl20m" title="YouTube video player" 
@@ -100,7 +111,7 @@
         </div>
       </div>
       
-      <div class="col-md-4">
+      <div class=" col-12 col-md-4">
         <div class="card h-100">
           <div class="ratio ratio-16x9">
             <iframe width="1424" height="652" src="https://www.youtube.com/embed/aAxGTnVNJiE?si=JgD997vDC0wl2m-r" title="YouTube video player" 
@@ -116,27 +127,14 @@
 
 
     </div>
+      <!-- py-3 adds padding to top/bottom of footer. mt-auto pushes footer to bottom of page when using flex container -->
+      <footer class="text-center text-body-secondary py-3 mt-auto">
+        &copy;Caitie Hall
+      </footer>
+    </div>
+</div>
 
 
-
-
-      <div class="card text-center">
-        <!-- <div class="card-header">
-          Featured
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div> -->
-
-        <!-- Footer with copyright and my name -->
-        <div class="card-footer text-body-secondary">
-          &copy;Caitie Hall
-        </div>
-      </div>
-
-
-      
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
